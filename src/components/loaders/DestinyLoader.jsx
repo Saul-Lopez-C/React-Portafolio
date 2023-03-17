@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Html } from '@react-three/drei';
 
 import "./DestinyLoader.scss"
 
@@ -37,38 +38,42 @@ const DestinyLoader = () => {
 
 
     return (
-        <div className={`container ${guardians.join(" ")}`}>
-            <div className="circle c1"></div>
-            <div className="circle c2"></div>
-            <div className="circle c3"></div>
-            <div className="circle c4"></div>
-            <div className="shape_group">
-                <div className="shape s1"></div>
-                <div className="shape s2"></div>
-                <div className="shape s3"></div>
-                <div className="shape s4"></div>
-                <div className="shape s5"></div>
-                <div className="shape s6"></div>
-            </div>
-            <div className="line_group g1">
-                <div className="line l1"></div>
-                <div className="line l2"></div>
-                <div className="line l3"></div>
-                <div className="line l4"></div>
-            </div>
-            <div className="line_group g2">
-                <div className="line l1"></div>
-                <div className="line l2"></div>
-                <div className="line l3"></div>
-                <div className="line l4"></div>
-            </div>
-            <div className="line_group g3">
-                <div className="line l1"></div>
-                <div className="line l2"></div>
-                <div className="line l3"></div>
-                <div className="line l4"></div>
+        <Html>
+            <div className='w-1/4 h-1/4'>
+            <div className={`container ${guardians.join(" ")}`}>
+                <div className="circle c1"></div>
+                <div className="circle c2"></div>
+                <div className="circle c3"></div>
+                <div className="circle c4"></div>
+                <div className="shape_group">
+                    <div className="shape s1"></div>
+                    <div className="shape s2"></div>
+                    <div className="shape s3"></div>
+                    <div className="shape s4"></div>
+                    <div className="shape s5"></div>
+                    <div className="shape s6"></div>
+                </div>
+                <div className="line_group g1">
+                    <div className="line l1"></div>
+                    <div className="line l2"></div>
+                    <div className="line l3"></div>
+                    <div className="line l4"></div>
+                </div>
+                <div className="line_group g2">
+                    <div className="line l1"></div>
+                    <div className="line l2"></div>
+                    <div className="line l3"></div>
+                    <div className="line l4"></div>
+                </div>
+                <div className="line_group g3">
+                    <div className="line l1"></div>
+                    <div className="line l2"></div>
+                    <div className="line l3"></div>
+                    <div className="line l4"></div>
+                </div>
             </div>
         </div>
+        </Html>
     )
 }
 

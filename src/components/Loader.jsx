@@ -7,7 +7,7 @@ const Loader = () => {
 
   return (
     <Html>
-      {/* <span className="canvas-load"></span>
+      <span className="canvas-load"></span>
       <p 
         style={{
           fontSize: 14,
@@ -15,8 +15,8 @@ const Loader = () => {
           fontWeight: 800,
           marginTop: 40
         }}
-      >{progress.toFixed(2)}%</p> */}
-      <DestinyLoader />
+      >{progress.toFixed(2)}%</p>
+      {/* <DestinyLoader /> */}
     </Html>
   )
 }

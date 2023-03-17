@@ -1,14 +1,39 @@
 import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import { styles } from "../style";
 import { HunterCanvas } from "./canvas";
 import Experience from "./canvas/Experience";
 
 import CanvasLoader from "./Loader"
+import DestinyLoader from "./loaders/DestinyLoader";
 
 const Hero = () => {
+
+  const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        // Add a listener for changes to the screen size
+        const mediaQuery = window.matchMedia('(max-width: 500px)')
+
+        // set the initial value of the `isMobile` state variable
+        setIsMobile(mediaQuery.matches)
+
+        // Define a callback function to handle changes to the media query
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches)
+        }
+
+        // Add the callback function as a listener for changes to the media query
+        mediaQuery.addEventListener('change', handleMediaQueryChange)
+
+        // Remove the listener when the component is unmounted
+        return () => {
+            mediaQuery.removeEventListener('change', handleMediaQueryChange)
+        }
+    }, [])
+
   return (
     <section className="relative w-full h-[95vh] mx-auto">
       <div className={`${styles.paddingX} absolute inset-0 top-[80px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
@@ -31,8 +56,8 @@ const Hero = () => {
         camera={{ position: [0, -16, 0], fov: 50 }}
         gl={{ preserveDrawingBuffer: true }}
       >
-        <Suspense fallback={<CanvasLoader />}>
-          <Experience />
+        <Suspense fallback={isMobile ? <CanvasLoader /> : <DestinyLoader />}>
+          <Experience isMobile={isMobile}/>
         </Suspense>
       </Canvas>
 

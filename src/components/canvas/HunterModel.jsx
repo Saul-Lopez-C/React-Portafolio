@@ -10,14 +10,18 @@ Title: Destiny 2 Character Bust
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-const Hunter = (props) => {
+const Hunter = ({ props, isMobile }) => {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('./destiny_model/hunter.gltf')
   const { actions, names } = useAnimations(animations, group)
 
   useEffect(() => {
-    actions[names[0]].reset().fadeIn(0.5).play()
-  }, [])
+    if(isMobile) {
+      actions[names[0]].reset().fadeIn(0.5).stop()
+    } else {
+      actions[names[0]].reset().fadeIn(0.5).play()
+    }
+  }, [isMobile])
 
   return (
     <group ref={group} {...props} dispose={null}>
