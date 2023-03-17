@@ -11,11 +11,9 @@ const DestinyLoader = () => {
     const [timer, setTimer] = useState(50);
 
     const changeClass = () => {
-        //console.log(count);
         setGuardians(
             guardians.filter((guardian) => guardian !== classNames[count])
         );
-        console.log("delete", guardians);
         const i = count < classNames.length - 1 ? count + 1 : 0;
         setCount(i);
         //push the i position in guardians array
